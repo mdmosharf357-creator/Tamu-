@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary</title>
+    <style>
+        :root {
+            --primary-color: #ff4d6d;
+            --secondary-color: #ff85a1;
+            --bg-gradient: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: var(--bg-gradient);
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            text-align: center;
+            overflow: hidden;
+            color: white;
+        }
+
+        /* Floating Hearts Background Animation */
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 20px;
+            animation: float 5s linear infinite;
+            z-index: 0;
+            bottom: -50px;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Container Styling */
+        #mainContainer {
+            z-index: 10;
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h2 {
+            font-size: 32px;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+            margin-bottom: 25px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Button Styling */
+        .btn-open {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 18px 40px;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-open:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            background: #fff0f3;
+        }
+
+        /* Message Sections */
+        #message1, #message2 {
+            display: none;
+            animation: zoomIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        /* Image Frame - Glassmorphism */
+        .frame {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            display: inline-block;
+        }
+
+        .frame img {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 20px;
+            display: block;
+        }
+
+        p {
+            font-size: 20px;
+            margin-top: 20px;
+            line-height: 1.5;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+<div id="heart-bg"></div>
+
+<div id="mainContainer">
+    <div id="firstScreen">
+        <h2>🎁 You have a Special Gift!</h2>
+        <button class="btn-open" onclick="startLove()">Open Your Gift 💝</button>
+    </div>
+
+    <div id="message1">
+        <h2>Happy 2nd Love Anniversary My Love 😘🥰</h2>
+        <p>You are the most beautiful chapter of my life ❤️</p>
+    </div>
+
+    <div id="message2">
+        <div class="frame">
+            <img src="tama.jpg" alt="Love You Tamu😘🥰">
+        </div>
+        <p>
+            প্রেয়সী আমার জীবনের প্রতিটি মুহূর্ত রঙিন করে তোলার জন্য ধন্যবাদ। এভাবেই আজীবন পাশে থেকো। অনেক ভালোবাসি তোমাকে! ❤️✨
+        </p> <p> <b> LOVE YOU TAMU😘🥰</b></p>
+    </div>
+</div>
+
+<script>
+    // Background Heart Animation
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+        heart.style.opacity = Math.random();
+        document.getElementById('heart-bg').appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+
+    // সারাক্ষণ ব্যাকগ্রাউন্ডে হার্ট তৈরি হবে
+    setInterval(createHeart, 300);
+
+    function startLove(){
+        document.getElementById("firstScreen").style.display="none";
+        document.getElementById("message1").style.display="block";
+
+        // ৫ সেকেন্ড পর দ্বিতীয় মেসেজ আসবে
+        setTimeout(function(){
+            document.getElementById("message1").style.display="none";
+            document.getElementById("message2").style.display="block";
+        }, 5000);
+    }
+</script>
+
+</body>
+</html>
