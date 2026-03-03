@@ -78,24 +78,6 @@
     </div>
 
     <div id="message2">
-        <script>
-        function startTimer() {
-        const anniversaryDate = new Date("March 03, 2024 00:00:00").getTime(); 
-        
-        setInterval(() => {
-            const now = new Date().getTime();
-            const diff = now - anniversaryDate;
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById("timer").innerHTML = 
-                `${days} Days : ${hours}h : ${mins}m : ${secs}s Together`;
-        }, 1000);
-    }
-        </script>
         <div class="frame">
             <img src="tama.jpg" class="slides active">
            <img src="tama1.jpg" class="slides">
@@ -165,6 +147,23 @@
         setTimeout(() => heart.remove(), 5000);
     }, 300);
 </script>
+<script>
+        function startTimer() {
+        const anniversaryDate = new Date("March 03, 2024 00:00:00").getTime(); 
+        
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = now - anniversaryDate;
 
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = 
+                `${days} Days : ${hours}h : ${mins}m : ${secs}s Together`;
+        }, 1000);
+    }
+        </script>
 </body>
 </html>
